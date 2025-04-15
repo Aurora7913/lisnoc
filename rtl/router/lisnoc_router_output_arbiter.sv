@@ -87,7 +87,7 @@ module lisnoc_router_output_arbiter(/*AUTOARG*/
    always @ (*) begin
       if (rst) begin
          link_valid_o = {vchannels{1'b0}};
-         channel  = 3'b000;
+         channel  = 0;
          fifo_ready_o  = {vchannels{1'b0}};
       end else begin
          channel  = prev_channel;
