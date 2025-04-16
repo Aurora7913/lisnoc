@@ -89,6 +89,8 @@ module lisnoc_router_output_arbiter(/*AUTOARG*/
          link_valid_o = {vchannels{1'b0}};
          channel  = 0;
          fifo_ready_o  = {vchannels{1'b0}};
+         channel_selected = 0;
+         sel_channel = 0;
       end else begin
          channel  = prev_channel;
          link_valid_o = {vchannels{1'b0}};
@@ -99,7 +101,7 @@ module lisnoc_router_output_arbiter(/*AUTOARG*/
 
          repeat (vchannels) begin
             sel_channel = sel_channel + 1;
-            if (sel_channel == vchannels)
+            if (32'(sel_channel) == vchannels)
                sel_channel = 0;
 
             // check if we can serve this channel

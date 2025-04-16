@@ -102,7 +102,7 @@ module lisnoc_router_arbiter (/*AUTOARG*/
 
 
    always @(*) begin : convertonehot
-      integer i;
+      logic[ports_width-1:0] i;
       portnum = 0;
       activeportnum = 0;
       for (i=0;i<ports;i=i+1) begin
